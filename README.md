@@ -68,7 +68,7 @@ wait.polling.millis=500
 
 Override via:
 
-- System properties (`-Dsearch.location="Tel Aviv"`)
+- System properties, can be configured in `docker-compose.yml` file (`-Dsearch.location="Tel Aviv"`)
 - Environment variables (e.g. `export search.location="Tel Aviv"`)
 
 ### SimpleLogger
