@@ -1,0 +1,27 @@
+services:
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    shm_size: 1g
+    image: airbnb-ui-automation:latest
+    container_name: airbnb-ui-automation
+    working_dir: /home/seluser/project
+    volumes:
+      - .:/home/seluser/project/test-output
+      # Test parameters (if left blank, will fallback to test.properties)
+    command: >
+      mvn verify -B
+        -Dorg.org.slf4j.simpleLogger.log.com.airbnb.pages=info
+        -Dorg.slf4j.simpleLogger.log.com.airbnb.tests=info
+        -Dapp.url="${APP_URL:-https://www.airbnb.com}"
+        -Dsearch.location="${SEARCH_LOCATION:-Tel Aviv}"
+        -Dsearch.checkin="${SEARCH_CHECKIN:-7/15/2025}"
+        -Dsearch.checkout="${SEARCH_CHECKOUT:-7/25/2025}"
+        -Dsearch.adults="${SEARCH_ADULTS:-2}"
+        -Dsearch.children="${SEARCH_CHILDREN:-1}"
+        -Dsearch.infants="${SEARCH_INFANTS:-0}"
+        -Dsearch.pets="${SEARCH_PETS:-0}"
+        -Dwait.timeout.seconds="${WAIT_TIMEOUT_SECONDS:-30}"
+        -Dwait.polling.millis="${WAIT_POLLING_MILLIS:-500}"
+        -Dwebdriver.remote.url="${WEBDRIVER_REMOTE_URL:-http://localhost:4444/wd/hub}"

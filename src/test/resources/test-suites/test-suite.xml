@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Airbnb UI Suite" verbose="1">
+  <test name="airbnb Search-Edit-Reserve Tests">
+    <classes>
+      <class name="com.airbnb.tests.SearchEditReserveTest"/>
+    </classes>
+  </test>
+</suite>
