@@ -1,4 +1,4 @@
-# Airbnb UI WQA Automation Project
+# Airbnb UI QA Automation Project
 
 A Selenium-based Java automation suite for end-to-end Airbnb search and reservation flows.
 This repository provides a production-grade, scalable UI automation framework for Airbnb, 
